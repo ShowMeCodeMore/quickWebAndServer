@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+}
+
+group 'QuickWebPro'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.17'
+    compile("org.springframework.boot:spring-boot-starter-web:1.5.10.RELEASE")
+    compile("org.thymeleaf:thymeleaf-spring4:3.0.9.RELEASE")
+}
