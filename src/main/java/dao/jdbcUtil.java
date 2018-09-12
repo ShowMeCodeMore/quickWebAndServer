@@ -2,10 +2,7 @@ package dao;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Properties;
 
 public class jdbcUtil {
@@ -32,7 +29,19 @@ public class jdbcUtil {
         return connection;
     }
 
-    public static void closeConnect(Statement st, Connection con) {
+    public static void closeConnect(Statement st, Connection con){
+        closeConnect(st,con,null);
+    }
+
+    public static void closeConnect(Statement st, Connection con, ResultSet res) {
+        try {
+            if (res != null) {
+                res.close();
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         try {
             if (st != null) {
                 st.close();
